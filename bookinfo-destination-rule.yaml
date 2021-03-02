@@ -1,0 +1,65 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: details
+  namespace: bookinfo
+spec:
+  host: details.bookinfo.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ratings
+  namespace: bookinfo
+spec:
+  host: ratings.bookinfo.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: productpage
+  namespace: bookinfo
+spec:
+  host: productpage.bookinfo.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+  namespace: bookinfo
+spec:
+  host: reviews.bookinfo.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL  
+  subsets:
+  - name: v1
+    labels:
+      app: reviews
+      version: v1
+    trafficPolicy:
+      loadBalancer:
+        simple: ROUND_ROBIN
+  - name: v2
+    labels:
+      app: reviews
+      version: v2
+    trafficPolicy:
+      loadBalancer:
+        simple: ROUND_ROBIN
+  - name: v3
+    labels:
+      app: reviews
+      version: v3
+    trafficPolicy:
+      loadBalancer:
+        simple: ROUND_ROBIN

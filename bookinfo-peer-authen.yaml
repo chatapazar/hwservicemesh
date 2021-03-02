@@ -1,0 +1,47 @@
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: reviews
+  namespace: bookinfo
+spec:
+  selector:
+    matchLabels:
+      app: reviews
+  mtls:
+    mode: STRICT #UNSET, DISABLE, PERMISSIVE, STRICT
+---
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: ratings
+  namespace: bookinfo
+spec:
+  selector:
+    matchLabels:
+      app: ratings
+  mtls:
+    mode: STRICT #UNSET, DISABLE, PERMISSIVE, STRICT
+---
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: details
+  namespace: bookinfo
+spec:
+  selector:
+    matchLabels:
+      app: details
+  mtls:
+    mode: STRICT #UNSET, DISABLE, PERMISSIVE, STRICT
+---
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: productpage
+  namespace: bookinfo
+spec:
+  selector:
+    matchLabels:
+      app: productpage
+  mtls:
+    mode: STRICT #UNSET, DISABLE, PERMISSIVE, STRICT
