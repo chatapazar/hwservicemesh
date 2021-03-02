@@ -3,7 +3,7 @@ Here is homework environment:
 Openshift Master Console: https://console-openshift-console.apps.cluster-5998.5998.sandbox1668.opentlc.com
 Openshift API for command line 'oc' client: https://api.cluster-5998.5998.sandbox1668.opentlc.com:6443
 
-User `opentlc-mgr` with password `r3dh4t1!` is cluster admin.
+User `opentlc-mgr` with password `xxxxxxx` is cluster admin. --> see password in README.md of LMS
 
 data plane project: bookinfo
 control plane project : bookretail-istio-system
